@@ -19,7 +19,7 @@ im = abs(data.r(:,:,end-n_fields+1:end)+1i*data.i(:,:,end-n_fields+1:end));
       
 %% Display T1 map
 figure
-imagesc(abs(im(:,:,1)));
+imagesc(abs(im(:,:,3)));
 
 
 %% T1 stroke from T1 map
