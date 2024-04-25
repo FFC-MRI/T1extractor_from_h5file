@@ -51,7 +51,6 @@ errorbar(bevo/1000,T1s/1000,dT1s/1000, '-rs')
 hold on
 errorbar(bevo/1000,T1H/1000,dT1H/1000, '-bs')
 set(gca, 'XScale','log', 'YScale','log')
-title('Patient 9')
 ylabel('T1 Relaxation time (s)')
 xlabel('Evolution field (T)')
 legend({'Infarct region','Matched contralateral region'},'location','southeast')
