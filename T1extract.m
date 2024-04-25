@@ -8,7 +8,7 @@ cd(path)
 
 %% data import
 %==== set Bevo ===================
-bevo = [200,21.1,2.2,1,1,1]*1e-3;
+bevo = [200,21.1,2.2,0.2]*1e-3;
     
 s=h5info(filename);
 itn = size(s.Datasets)-2; %find number of iterations

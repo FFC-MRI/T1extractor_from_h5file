@@ -7,13 +7,12 @@
 cd(path)
 
 %% data import
-%==== set Bevo ===================
-bevo = [200,21.1,2.2,1,1,1]*1e-3;
-    
+
 s=h5info(filename);
 itn = size(s.Datasets)-2; %find number of iterations
 data = h5read(filename,'/tgv_result_iter_19');
-im = abs(data.r(:,:,end-numel(bevo)+1:end)+1i*data.i(:,:,end-numel(bevo)+1:end));
+n_fields = round((size(data.r,4)-1)/2);
+im = abs(data.r(:,:,end-n_fields+1:end)+1i*data.i(:,:,end-n_fields+1:end));
 
       
 %% Display T1 map
@@ -22,7 +21,7 @@ imagesc(abs(im(:,:,1)));
 
 
 %% T1 stroke from T1 map
-title
+title('Draw the ROI for the stroke region')
 mask_s = roipoly;
 T1s = zeros(size(im,3),1);
 dT1s = zeros(size(im,3),1);
@@ -33,6 +32,7 @@ for i=1:size(im,3)
 end
    
 %T1 contralateral from T1 map
+title('Draw the ROI for the contralateral region')
 mask_H = roipoly;
 T1H = zeros(size(im,3),1);
 dT1H = zeros(size(im,3),1);
